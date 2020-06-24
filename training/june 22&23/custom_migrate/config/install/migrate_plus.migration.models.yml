@@ -1,0 +1,13 @@
+id: models
+label: Models
+migration_group: custom_migrate
+source:
+  plugin: models
+  key: default
+destination:
+  plugin: entity:taxonomy_term
+process:
+  vid:
+    plugin: default_value
+    default_value: tags
+  name: name

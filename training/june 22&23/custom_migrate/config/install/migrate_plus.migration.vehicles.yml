@@ -1,0 +1,21 @@
+id: vehicles
+label: Vehicles
+migration_group: custom_migrate
+source:
+  plugin: vehicles
+  key: default
+destination:
+  plugin: entity:node
+process:
+  type:
+    plugin: default_value
+    default_value: article
+  title: name
+  body: description
+  field_tags:
+    plugin: migration
+    migration: models
+    source: models
+migration_dependencies:
+  required:
+    - models
