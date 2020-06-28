@@ -1,0 +1,15 @@
+details_module.content:
+  path: /insertdetails
+  defaults:
+    _form: 'Drupal\details_module\Form\Insert'
+    _title: 'Insert Details'
+  requirements:
+    _permission: 'access content'
+
+details_module.config:
+  path: /config
+  defaults: 
+    _controller: '\Drupal\details_module\Controller\ConfigController::content' 
+    _title: 'Configurations'
+  requirements:
+    _permission: 'access content'    

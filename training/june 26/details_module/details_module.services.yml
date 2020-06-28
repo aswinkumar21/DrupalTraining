@@ -1,0 +1,6 @@
+services:
+  details_module.event_subscriber:
+    class: Drupal\details_module\EventSubscriber\LoggerSubscriber
+    arguments: ['@logger.factory']
+    tags:
+      - { name: 'event_subscriber' }
