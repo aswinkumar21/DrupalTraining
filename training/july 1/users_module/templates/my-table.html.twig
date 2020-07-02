@@ -1,0 +1,11 @@
+{% if userdata %}
+ <h2>User Deatils</h2>
+  <div class="Parent"> 
+   
+      <div class="child-wrapper">First Name -  {{ userdata.firstname }}</div>
+      <div class="child-wrapper">Last Name -  {{ userdata.lastname }}</div>
+      <div class="child-wrapper">Bio -  {{ userdata.bio }}</div>
+      <div class="child-wrapper">gender -  {{ userdata.gender }}</div>
+   
+  </div>
+{% endif %}

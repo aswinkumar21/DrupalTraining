@@ -1,0 +1,26 @@
+users_module.add:
+  path: /inactive-users
+  defaults:
+    _form: 'Drupal\users_module\Form\InactiveUsers'
+    _title: 'Inactive Users'
+  requirements:
+    _permission: 'access content'
+    _role: 'administrator'
+users_module.edit:
+  path: /edit-details
+  defaults:
+    _form: 'Drupal\users_module\Form\Details'
+    _title: 'Edit Details'
+  requirements:
+    _permission: 'access content'
+    _role: 'user'
+users_module.userDisplay:
+  path: '/users/{uid}' 
+  defaults: 
+    _controller: '\Drupal\users_module\Controller\ContentController::userDisplay' 
+  requirements:
+    _permission: 'access content'   
+    _role: 'user'   
+
+    
+    

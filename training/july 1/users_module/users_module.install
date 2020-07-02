@@ -1,0 +1,59 @@
+<?php
+
+
+function users_module_schema() {
+$schema['details'] = array(
+    'description' => 'Details of users.',
+    
+    'fields' => array(
+        'id' => array(
+        'description' => 'The primary identifier for a node.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+		
+	  'uid' => array(
+        'description' => 'User id.',
+        'type' => 'int',
+        'length' => '11',
+        'not null' => FALSE),
+      
+      'firstname' => array(
+        'description' => 'First name.',
+        'type' => 'varchar',
+        'length' => '100',
+        'not null' => FALSE),
+      
+      'lastname' => array(
+        'description' => 'last name',
+        'type' => 'varchar',
+        'length' => '100',
+        'not null' => FALSE),
+      
+      'bio' => array(
+        'description' => 'bio',
+        'type' => 'varchar',
+        'length' => '100',
+        'not null' => FALSE),
+      
+      'gender' => array(
+        'description' => 'gender',
+        'type' => 'varchar',
+        'length' => '100',
+        'not null' => FALSE),
+    ),  
+    
+    'primary key' => array('id'),
+    
+  );
+  return $schema;
+ }
+
+function users_module_install() {
+
+  drupal_install_schema('details');
+}
+
+function users_module_uninstall() {
+  drupal_uninstall_schema('details');
+}

@@ -1,0 +1,9 @@
+services:
+  users_module.add:
+    class: 'Drupal\users_module\Services\FormServices'
+    arguments: ['@config.factory']
+  users_module.event_subscriber:
+    class: Drupal\users_module\EventSubscriber\RedirectSubscriber
+    arguments: ['@logger.factory']
+    tags:
+      - { name: 'event_subscriber' }

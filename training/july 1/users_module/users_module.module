@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Contains users_module.module.
+ */
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+use Drupal\Core\Form\drupal_set_message;
+use Drupal\Core\Entity\t;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_help().
+ */
+function users_module_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the users_module module.
+    case 'help.page.users_module':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Custom Users Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function users_module_user_login($account) {
+	
+  $roles = $account->getRoles();
+  // print_r($roles);die;
+  if(in_array('administrator', $roles)) {
+    $response = new RedirectResponse('/d8new/web/inactive-users');
+    $response->send();
+  } else {
+	 $response = new RedirectResponse('/d8new/web/edit-details');
+    $response->send();  
+  }
+}
+
+ function users_module_user_insert(EntityInterface $entity){    
+ //unset($_SESSION['messages']['status']);    
+ drupal_set_message('Your account is registered our admin team will look & activate your account');   
+ }
+
+/**
+ * Implements hook_theme().
+ */
+ 
+ function users_module_theme($existing, $type, $theme, $path) {
+  return [
+    'my_table' => [
+      'variables' => ['userdata' => NULL],
+    ],
+  ];
+}

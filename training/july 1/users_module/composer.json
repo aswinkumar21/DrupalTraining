@@ -1,0 +1,13 @@
+{
+    "name": "users_module",
+    "type": "drupal-module",
+    "description": "My Custom Users Module",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/users_module",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/users_module",
+        "source": "http://cgit.drupalcode.org/users_module",
+    },
+}
